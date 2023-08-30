@@ -1,5 +1,5 @@
 import React from "react";
-import "./Header.css";
+//import "./Header.css";
 import bgImage from "../../assets/images/hero-bg.png";
 
 const Header = () => {

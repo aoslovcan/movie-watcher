@@ -3,12 +3,13 @@ import logo from "./logo.svg";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { HomePage, MovieDiscoveryPage, MovieDetailsPage } from "./pages/index";
 import "./PageLayout.css";
+import "./assets/styles/styles.scss";
 
 function PageLayout() {
   return (
-    <div className="u-lyt" data-testid="layout">
-      <div className="o-page">
-        <div className="main">
+    <div data-testid="layout">
+      <div className="">
+        <div className="">
           <Routes>
             <Route path="/home" element={<HomePage />}></Route>
             <Route

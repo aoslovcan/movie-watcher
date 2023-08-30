@@ -1,0 +1,113 @@
+$size322: rem(322px);
+
+.u-lyt {
+  font-family: $font-primary;
+  @include fluidValue("padding-top", "s-104");
+  @include fluidValue("padding-bottom", "s-104");
+  @include fluidValue("padding-right", "s-180");
+  @include fluidValue("margin-right", "s-180");
+  @include fluidValue("margin-left", "s-180");
+
+  @include mq(xl) {
+    @include fluidValue("margin-left", "s-64");
+    @include fluidValue("padding-right", "s-180");
+    @include fluidValue("margin-right", "s-6");
+  }
+
+  @include mq(lg) {
+    @include fluidValue("margin-left", "s-56");
+    @include fluidValue("margin-right", "s-6");
+    @include fluidValue("padding-right", "s-6");
+  }
+
+  @include mq(md) {
+    @include fluidValue("margin-left", "s-6");
+    @include fluidValue("margin-right", "s-6");
+    @include fluidValue("padding-right", "s-6");
+  }
+  @include mq(sm) {
+    @include fluidValue("margin-left", "s-6");
+    @include fluidValue("padding-right", "s-6");
+  }
+}
+
+.o-page {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+  @include fluidValue("padding-top", "s-104");
+}
+
+.main {
+  min-height: 100vh;
+  @include fluidValue("margin-left", "s-120");
+
+  @include mq(xl) {
+    @include fluidValue("margin-left", "s-120");
+  }
+
+  @include mq(lg) {
+    @include fluidValue("margin-left", "s-104");
+  }
+
+  @include mq(md) {
+    @include fluidValue("margin-top", "s-120");
+    @include fluidValue("margin-left", "s-6");
+  }
+  @include mq(sm) {
+    @include fluidValue("margin-top", "s-120");
+    @include fluidValue("margin-left", "s-32");
+  }
+
+  .main-page{
+    &__navigation{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      @include fluidValue("margin-top", "s-32");
+    }
+  }
+
+  &__inner {
+    display: grid;
+    grid-gap: 41px;
+    grid-template-columns: $size322 $size322 $size322;
+
+    @include mq(lg) {
+      grid-template-columns: $size322 $size322;
+    }
+
+    @include mq(md) {
+      grid-template-columns: $size322 $size322;
+    }
+
+    @include mq(sm) {
+      grid-template-columns: $size322;
+    }
+  }
+}
+
+.item {
+  grid-column: 0;
+}
+
+.item-column {
+  grid-column: 3;
+  grid-row: 1 / span 2;
+
+  @include mq(lg) {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+  }
+
+  @include mq(md) {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+  }
+
+  @include mq(sm) {
+    grid-column: 1;
+    grid-row: 1 / span 1;
+  }
+}
