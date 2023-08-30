@@ -2,7 +2,7 @@ import React from "react";
 import logo from "./logo.svg";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { HomePage, MovieDiscoveryPage, MovieDetailsPage } from "./pages/index";
-import "./App.css";
+import "./PageLayout.css";
 
 function PageLayout() {
   return (

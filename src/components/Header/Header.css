@@ -1,0 +1,53 @@
+.hero{
+    height: 750px;
+    width: 100%;
+    position: relative;
+    margin-top: 0!important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.content{
+    z-index: 1;
+    height: 750px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.content__heading{
+    width: 80%;
+    font-size: 46px;
+    line-height: 58px;
+    color: white;
+    font-weight: 900;
+    margin: 0;
+}
+
+.content__subheading{
+    font-size: 20px;
+    font-weight: 400;
+    margin-top: 30px;
+    color: #999c9f;
+    width: 80%;
+}
+
+.content, .hero__gradient{
+    position: absolute;
+    width: 100%;
+}
+.hero__gradient{
+    height: 100%;
+    top: 1px;
+    background-image: linear-gradient(
+            180deg
+            ,transparent 0,#000);
+}
+
+.picture-comp{
+    width: 100%;
+    max-height: none;
+}
