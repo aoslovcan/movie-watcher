@@ -2,12 +2,14 @@ import React from "react";
 import logo from "./logo.svg";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { HomePage, MovieDiscoveryPage, MovieDetailsPage } from "./pages/index";
+import { NavBar } from "./components/index";
 import "./PageLayout.css";
 import "./assets/styles/styles.scss";
 
 function PageLayout() {
   return (
-    <div data-testid="layout">
+    <div className="u-lyt" data-testid="layout">
+      <NavBar />
       <div className="">
         <div className="">
           <Routes>

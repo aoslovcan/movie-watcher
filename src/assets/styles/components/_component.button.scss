@@ -22,3 +22,13 @@
 .large {
   padding: 1.6rem 4rem;
 }
+
+.transparent{
+  background: transparent;
+  color: $primary-grey;
+  border: 1px solid $primary-grey ;
+}
+
+.medium{
+  padding: rem(5px) rem(10px);
+}
