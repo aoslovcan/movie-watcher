@@ -60,8 +60,8 @@ $size322: rem(322px);
     @include fluidValue("margin-left", "s-32");
   }
 
-  .main-page{
-    &__navigation{
+  .main-page {
+    &__navigation {
       display: flex;
       flex-direction: row;
       justify-content: space-around;

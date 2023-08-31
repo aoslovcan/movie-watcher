@@ -26,9 +26,7 @@
 ) {
   @font-face {
     font-family: "#{$font-name}";
-    src:
-      url("../../fonts/#{$font-filename}.woff?#{$version}")
-        format("woff");
+    src: url("../../fonts/#{$font-filename}.woff?#{$version}") format("woff");
     font-weight: $font-weight;
     font-style: $font-style;
     font-display: swap;

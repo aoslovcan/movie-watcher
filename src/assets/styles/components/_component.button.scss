@@ -1,0 +1,24 @@
+.button {
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  white-space: nowrap;
+  cursor: pointer;
+
+  &__rounded {
+    border-radius: rem(8px);
+  }
+}
+
+.primary {
+  font-family: $font-primary;
+  background-color: $primary_yellow;
+  color: $primary-black;
+  @include fontSize("b1");
+  font-weight: 700;
+}
+.large {
+  padding: 1.6rem 4rem;
+}
