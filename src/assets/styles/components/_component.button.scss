@@ -32,3 +32,16 @@
 .medium{
   padding: rem(5px) rem(10px);
 }
+
+.favourites-button{
+  z-index: 9999;
+  color: #fff;
+  opacity: .5;
+  position: absolute;
+  font-size: 33px;
+  cursor: pointer;
+
+  &:hover{
+    opacity: 0.7;
+  }
+}
