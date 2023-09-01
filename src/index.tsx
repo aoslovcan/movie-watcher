@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 import PageLayout from "./PageLayout";
+import 'react-horizontal-scrolling-menu/dist/styles.css';
 
 import reportWebVitals from "./reportWebVitals";
 

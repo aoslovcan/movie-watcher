@@ -1,3 +1,5 @@
+import React from "react";
+
 export interface ValidationType {
   string:
     | {
@@ -8,3 +10,9 @@ export interface ValidationType {
   }
     | undefined
 }
+
+export type ArrowType = {
+  direction: string;
+}
+
+

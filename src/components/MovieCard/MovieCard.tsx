@@ -2,7 +2,7 @@ import React from "react";
 import { BsFillBookmarkFill } from "react-icons/bs";
 
 type MovieCardProps = {
-  id: string,
+  id: number | string,
   title: string,
   posterPath: string,
 }
