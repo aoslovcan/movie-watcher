@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   margin-top: rem(20px);
+  font-family: $font-primary;
 
   &__header{
     display: flex;
@@ -12,6 +13,7 @@
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+      align-items: center;
     }
   }
 }

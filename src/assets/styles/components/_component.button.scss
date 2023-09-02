@@ -58,4 +58,5 @@
 
 .arrow{
   color: white;
+  @include fontSize("a1")
 }
