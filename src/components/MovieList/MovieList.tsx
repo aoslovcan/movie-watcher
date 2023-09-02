@@ -1,11 +1,15 @@
 import React from "react";
 import { ScrollMenu } from "react-horizontal-scrolling-menu";
 import "react-horizontal-scrolling-menu/dist/styles.css";
+import {MovieListType} from "../../types/types";
 import MovieCard from "../MovieCard/MovieCard";
 import ArrowButton from "./ArrowButton";
 
-const HorizontalScrollList = () =>{
 
+/*TODO {movieList} : MovieListType*/
+const MovieList = () =>{
+
+  /*TODO change this with props after API is done*/
   const items : Array<number> = [0, 1, 2, 3, 4, 5, 6, 7,8, 9];
 
   return( <div>
@@ -26,4 +30,4 @@ const HorizontalScrollList = () =>{
   )
 }
 
-export default HorizontalScrollList;
+export default MovieList;

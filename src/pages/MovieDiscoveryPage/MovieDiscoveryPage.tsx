@@ -1,5 +1,5 @@
 import React from "react";
-import HorizontalScrollList from "../../components/HorizontalScrollList/HorizontalScrollList";
+import MovieList from "../../components/MovieList/MovieList";
 
 const MovieDiscoveryPage = () => {
   return (
@@ -21,7 +21,7 @@ const MovieDiscoveryPage = () => {
         </div>
       </div>
         <div>
-          <HorizontalScrollList/>
+          <MovieList/>
         </div>
       </div>
     </div>

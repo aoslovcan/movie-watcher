@@ -1,13 +1,8 @@
 import React from "react";
 import { BsFillBookmarkFill } from "react-icons/bs";
+import { MovieCardType }  from "../../types/types";
 
-type MovieCardProps = {
-  id: number | string,
-  title: string,
-  posterPath: string,
-}
-
-const MovieCard = ({id, title, posterPath }: MovieCardProps) => {
+const MovieCard = ({id, title, posterPath }: MovieCardType) => {
 
   const url = `https://image.tmdb.org/t/p/w200/${posterPath}`
 

@@ -15,4 +15,14 @@ export type ArrowType = {
   direction: string;
 }
 
+export type MovieCardType = {
+  id: number | string,
+  title: string,
+  posterPath: string,
+}
+
+export type MovieListType ={movieList : Array<MovieCardType> }
+
+
+
 
