@@ -1,4 +1,4 @@
-import React from "react";
+import React, {ReactNode} from "react";
 
 export interface ValidationType {
   string:
@@ -23,6 +23,11 @@ export type MovieCardType = {
 
 export type MovieListType ={movieList : Array<MovieCardType> }
 
-
+export type TileProps = {
+  title?:string;
+  leftComponent?: string | ReactNode;
+  rightComponent?: string | ReactNode;
+  children: ReactNode;
+}
 
 
