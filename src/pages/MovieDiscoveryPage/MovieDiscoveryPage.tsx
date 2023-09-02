@@ -1,5 +1,5 @@
 import React from "react";
-import MovieList from "../../components/MovieList/MovieList";
+import MovieListSlider from "../../components/MovieListSlider/MovieListSlider";
 import { Tile } from "../../components/index";
 
 const MovieDiscoveryPage = () => {
@@ -17,11 +17,11 @@ const MovieDiscoveryPage = () => {
        hello
       </Tile>
         <Tile title="Newest movies">
-          <MovieList/>
+          <MovieListSlider/>
         </Tile>
 
         <Tile title="Popular movies">
-          <MovieList/>
+          <MovieListSlider/>
         </Tile>
     </div>
   );

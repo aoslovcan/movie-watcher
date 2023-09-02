@@ -7,7 +7,7 @@ import ArrowButton from "./ArrowButton";
 
 
 /*TODO {movieList} : MovieListType*/
-const MovieList = () =>{
+const MovieListSlider = () =>{
 
   /*TODO change this with props after API is done*/
   const items : Array<number> = [0, 1, 2, 3, 4, 5, 6, 7,8, 9];
@@ -30,4 +30,4 @@ const MovieList = () =>{
   )
 }
 
-export default MovieList;
+export default MovieListSlider;
