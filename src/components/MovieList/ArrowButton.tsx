@@ -41,7 +41,7 @@ const ArrowButton = ({ direction } : ArrowType) => {
 
   return (
     <button
-      className={`button button__vertical ${disabled ? 'disabled' : ''}`}
+      className={`button button__vertical ${disabled ? 'u-opacity0' : ''}`}
       onClick={handleClick}
     >
       {isLeft ? (
