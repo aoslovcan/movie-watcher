@@ -1,31 +1,32 @@
 import { useState, useEffect } from "react";
-import { ValidationType } from '../types/types'
+import { ValidationType } from "../types/types";
 
 export const useForm = (
   initialState: Record<string, unknown>,
   validations: ValidationType
 ) => {
-  const [formData, setFormData] = useState(initialState || {})
-  const [isValidForm, setIsValidForm] = useState(true)
-  const [formErrors, setFormErrors] = useState({})
+  const [formData, setFormData] = useState(initialState || {});
+  const [isValidForm, setIsValidForm] = useState(true);
+  const [formErrors, setFormErrors] = useState({});
 
   const checkValidation = () => {
     if (!validations) {
-      return
+      return;
     }
 
     const newErrors = Object.entries(validations).reduce(
       (errors, [fieldName, validation]) => {
-        const value: string | number | unknown = formData[fieldName]
-        const valueRequired = validation?.required.value
-        const customIsValid = validation?.custom?.isValid
-        const valueLength = typeof value === 'string' ? value?.trim().length : 0
+        const value: string | number | unknown = formData[fieldName];
+        const valueRequired = validation?.required.value;
+        const customIsValid = validation?.custom?.isValid;
+        const valueLength =
+          typeof value === "string" ? value?.trim().length : 0;
 
         if (valueRequired && !value) {
           return {
             ...errors,
             [fieldName]: validation?.required?.message,
-          }
+          };
         }
         //required and custom validation
         if (
@@ -36,7 +37,7 @@ export const useForm = (
           return {
             ...errors,
             [fieldName]: validation?.custom?.message,
-          }
+          };
         }
 
         if (
@@ -47,7 +48,7 @@ export const useForm = (
           return {
             ...errors,
             [fieldName]: validation.minLength.message,
-          }
+          };
         }
 
         if (
@@ -58,38 +59,38 @@ export const useForm = (
           return {
             ...errors,
             [fieldName]: validation.maxLength.message,
-          }
+          };
         }
 
-        return errors
+        return errors;
       },
       {}
-    )
+    );
 
     if (Object.keys(newErrors).length) {
-      setFormErrors({ ...newErrors })
-      setIsValidForm(false)
-      return
+      setFormErrors({ ...newErrors });
+      setIsValidForm(false);
+      return;
     }
 
-    setFormErrors({})
-    setIsValidForm(true)
-  }
+    setFormErrors({});
+    setIsValidForm(true);
+  };
 
   useEffect(() => {
-    checkValidation()
-  }, [formData])
+    checkValidation();
+  }, [formData]);
 
   const handleChange =
     (formField: string) =>
-      ({ target }: any) => {
-        const value = target.value
+    ({ target }: any) => {
+      const value = target.value;
 
-        setFormData({
-          ...formData,
-          [formField]: value,
-        })
-      }
+      setFormData({
+        ...formData,
+        [formField]: value,
+      });
+    };
 
   return {
     formData,
@@ -97,5 +98,5 @@ export const useForm = (
     isValidForm,
     setFormData,
     handleChange,
-  }
-}
+  };
+};

@@ -1,8 +1,8 @@
-.search-bar{
+.search-bar {
   position: relative;
 }
 
-.search{
+.search {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -11,7 +11,7 @@
   font-family: $font-primary;
   background: $dark-grey;
 
-  &:focus{
+  &:focus {
     transition-duration: 0.4s;
     -moz-transition-duration: 0.4s;
     -webkit-transition-duration: 0.4s;
@@ -20,8 +20,8 @@
     color: black;
   }
 
-  &__icon{
-   color: $primary-grey;
+  &__icon {
+    color: $primary-grey;
   }
 
   &__input {
@@ -37,7 +37,7 @@
   }
 }
 
-.suggestion{
+.suggestion {
   position: absolute;
   background: $dark-grey;
   width: 100%;
@@ -46,7 +46,7 @@
   padding: 4px 10px;
   min-height: 50vh;
 
-  &__list{
+  &__list {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;

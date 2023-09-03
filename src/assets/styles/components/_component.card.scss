@@ -1,25 +1,25 @@
 $rem5: rem(5px);
 
-.card{
+.card {
   position: relative;
   display: flex;
   overflow: hidden;
   background: #0a151f;
-  transition: opacity .1s ease;
+  transition: opacity 0.1s ease;
   border-radius: $rem5;
   width: 200px;
   margin: $rem5;
 
-  img{
+  img {
     opacity: 0.7;
   }
 
-  img:hover{
+  img:hover {
     opacity: 1;
     cursor: pointer;
   }
 
-  img:active{
+  img:active {
     opacity: 0.4;
   }
 }

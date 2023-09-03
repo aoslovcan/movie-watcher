@@ -1,16 +1,16 @@
-.u-lyt{
+.u-lyt {
   background: $dark-grey;
   min-height: 100vh;
 }
-.hidde{
+.hidde {
   display: none;
 }
 
-.u-opacity0{
+.u-opacity0 {
   opacity: 0;
 }
 
-.pg-lyt{
+.pg-lyt {
   @include fluidValue("margin-left", "s-120");
   @include fluidValue("margin-right", "s-120");
   color: white;

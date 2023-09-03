@@ -1,6 +1,6 @@
 $rem8: rem(8px);
 
-.calendar-icon{
+.calendar-icon {
   width: rem(46px);
   height: rem(45px);
   display: flex;
@@ -9,7 +9,7 @@ $rem8: rem(8px);
   border-radius: rem(8px);
   margin-inline-start: rem(20px);
 
-  &__month{
+  &__month {
     font-weight: 700;
     background-color: $primary-red;
     border-radius: 8px 8px 0 0;
@@ -19,12 +19,12 @@ $rem8: rem(8px);
     line-height: rem(14px);
   }
 
-  &__date{
+  &__date {
     background-color: #fff;
     border-radius: 0 0 8px 8px;
     color: #000;
     text-align: center;
-   @include fontSize("a1");
+    @include fontSize("a1");
     line-height: rem(32px);
   }
 }

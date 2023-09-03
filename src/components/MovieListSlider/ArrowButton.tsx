@@ -1,9 +1,14 @@
-import React, {useState, useEffect, useContext, MouseEventHandler} from "react";
+import React, {
+  useState,
+  useEffect,
+  useContext,
+  MouseEventHandler,
+} from "react";
 import { VisibilityContext } from "react-horizontal-scrolling-menu";
 import { ArrowType } from "../../types/types";
-import {BsChevronLeft, BsChevronRight} from "react-icons/bs";
+import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 
-const ArrowButton = ({ direction } : ArrowType) => {
+const ArrowButton = ({ direction }: ArrowType) => {
   const {
     isFirstItemVisible,
     isLastItemVisible,
@@ -13,13 +18,13 @@ const ArrowButton = ({ direction } : ArrowType) => {
     initComplete,
   } = useContext(VisibilityContext);
 
-  const isLeft = direction === 'left';
-  const isRight = direction === 'right';
+  const isLeft = direction === "left";
+  const isRight = direction === "right";
 
   const [disabled, setDisabled] = useState(
     !initComplete ||
-    (isLeft && isFirstItemVisible) ||
-    (isRight && (!visibleElements.length || isLastItemVisible))
+      (isLeft && isFirstItemVisible) ||
+      (isRight && (!visibleElements.length || isLastItemVisible))
   );
 
   useEffect(() => {
@@ -38,10 +43,9 @@ const ArrowButton = ({ direction } : ArrowType) => {
     }
   };
 
-
   return (
     <button
-      className={`button button__vertical ${disabled ? 'u-opacity0' : ''}`}
+      className={`button button__vertical ${disabled ? "u-opacity0" : ""}`}
       onClick={handleClick}
     >
       {isLeft ? (
@@ -51,8 +55,6 @@ const ArrowButton = ({ direction } : ArrowType) => {
       ) : null}
     </button>
   );
-}
+};
 
 export default ArrowButton;
-
-

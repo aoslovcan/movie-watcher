@@ -1,20 +1,17 @@
 import React, { useState, useEffect, ChangeEvent } from "react";
-import {BsSearch} from "react-icons/bs";
-import {useForm} from "../../../helpers/customHooks";
-
+import { BsSearch } from "react-icons/bs";
+import { useForm } from "../../../helpers/customHooks";
 
 const SearchBar = () => {
-
   const [isSearch, setIsSearch] = useState(false);
-  const suggestionData = ["Movie Super", "MovieTwo", "Movie Three", "Movie 4"]
-  let suggestionClassName = `suggestion ${isSearch ? "" : "hidde"}`
+  const suggestionData = ["Movie Super", "MovieTwo", "Movie Three", "Movie 4"];
+  let suggestionClassName = `suggestion ${isSearch ? "" : "hidde"}`;
 
   const initialForm: Record<string, unknown> = {
     searchValue: "",
-  }
+  };
 
-  const validations = {
-  }
+  const validations = {};
 
   const { formData, setFormData, handleChange, isValidForm, formErrors } =
     useForm(
@@ -22,11 +19,11 @@ const SearchBar = () => {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       validations
-    )
+    );
 
   useEffect(() => {
-    setFormData({ ...initialForm })
-  }, [])
+    setFormData({ ...initialForm });
+  }, []);
 
   const changeInputValue = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -36,42 +33,42 @@ const SearchBar = () => {
       target: {
         value: e.target.value,
       },
-    })
-  }
+    });
+  };
 
-  return(
+  return (
     <div className="search-bar">
       <div className="search">
-        <BsSearch className="search__icon"/>
+        <BsSearch className="search__icon" />
         <input
           className="search__input"
           onFocus={() => setIsSearch(true)}
           onBlur={() => setIsSearch(false)}
-          onChange={(e) => changeInputValue(e,"searchValue" )}
+          onChange={(e) => changeInputValue(e, "searchValue")}
           type="text"
           placeholder="Search.."
           //value={formData.searchValue}
-          name="search"/>
+          name="search"
+        />
       </div>
 
       <div className={suggestionClassName}>
         <ul className="suggestion__list">
-          {!formData?.searchValue ?
+          {!formData?.searchValue ? (
             suggestionData.map((item) => (
               <li className="suggestion__list__item">
                 <button className="button button__rounded medium transparent">
-                  <BsSearch/> {item}
+                  <BsSearch /> {item}
                 </button>
-
               </li>
-            )) : <p>List of movies goes here</p>
-          }
+            ))
+          ) : (
+            <p>List of movies goes here</p>
+          )}
         </ul>
-
       </div>
     </div>
-
-  )
-}
+  );
+};
 
 export default SearchBar;
