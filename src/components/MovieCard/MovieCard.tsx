@@ -3,7 +3,7 @@ import { BsFillBookmarkFill } from "react-icons/bs";
 import { MovieCardType } from "../../types/types";
 
 const MovieCard = ({ id, title, posterPath }: MovieCardType) => {
-  const url = `https://image.tmdb.org/t/p/w200/${posterPath}`;
+  const url = `https://image.tmdb.org/t/p/w500/${posterPath}`;
 
   return (
     <div role="button" tabIndex={0} className="card">
