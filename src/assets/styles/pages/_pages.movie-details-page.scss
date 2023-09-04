@@ -9,9 +9,21 @@
     background: $dark-grey;
     border-top: rem(1px) solid $dark-grey;
     position: relative;
-    z-index: 9999;
+    z-index: 9;
     margin: rem(-75px) auto 0;
     box-sizing: border-box;
+
+    .right{
+      color: $primary-white;
+      padding: rem(10px);
+    }
+
+    .left{
+      width: 30vw;
+      @include mq(md) {
+        display: none;
+      }
+    }
   }
 
   &__header {
@@ -21,14 +33,8 @@
     background-position: center;
   }
 
-  .left{
-    border: 1px solid white;
-    width: 100%;
-    padding: rem(10px);
-  }
-
   .card {
-    width: 50vh;
+    width: 60vh;
     height: 80vh;
   }
 }
