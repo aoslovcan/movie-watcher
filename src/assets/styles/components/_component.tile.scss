@@ -1,0 +1,19 @@
+.tile {
+  display: flex;
+  flex-direction: column;
+  margin-top: rem(20px);
+  font-family: $font-primary;
+
+  &__header {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: rem(20px);
+
+    &__left {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+}

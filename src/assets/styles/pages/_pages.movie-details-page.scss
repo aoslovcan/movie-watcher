@@ -1,0 +1,38 @@
+.movie-details-page {
+  &__box {
+    border-top-right-radius: rem(16px);
+    display: flex;
+    border-top-left-radius: rem(16px);
+    padding: rem(25px) rem(25px) 0;
+    width: 100%;
+    background: $dark-grey;
+    border-top: rem(1px) solid $dark-grey;
+    position: relative;
+    z-index: 9;
+    margin: rem(-75px) auto 0;
+    box-sizing: border-box;
+
+    .right {
+      color: $primary-white;
+      padding: rem(10px);
+    }
+
+    .left {
+      @include mq(md) {
+        display: none;
+      }
+    }
+  }
+
+  &__header {
+    height: 40vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .card {
+    width: 60vh;
+    height: 80vh;
+  }
+}

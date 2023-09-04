@@ -1,0 +1,24 @@
+@mixin keyframesBoxShadow($name, $settings) {
+  @keyframes #{$name} {
+    0% {
+      @include boxShadowContent(nth($settings, 1));
+    }
+    30% {
+      @include boxShadowContent(nth($settings, 2));
+    }
+    60%,
+    100% {
+      @include boxShadowContent(nth($settings, 3));
+    }
+  }
+}
+
+@mixin boxShadowContent($arguments) {
+  box-shadow: $arguments;
+}
+
+@mixin keyframesDotPulse() {
+  @include keyframesBoxShadow(dot-pulse-before, $dotPulseBefore);
+  @include keyframesBoxShadow(dot-pulse, $dotPulse);
+  @include keyframesBoxShadow(dot-pulse-after, $dotPulseAfter);
+}
