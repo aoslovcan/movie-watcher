@@ -1,5 +1,4 @@
 .movie-details-page {
-
   &__box {
     border-top-right-radius: rem(16px);
     display: flex;
@@ -13,12 +12,12 @@
     margin: rem(-75px) auto 0;
     box-sizing: border-box;
 
-    .right{
+    .right {
       color: $primary-white;
       padding: rem(10px);
     }
 
-    .left{
+    .left {
       @include mq(md) {
         display: none;
       }
