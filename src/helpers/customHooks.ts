@@ -1,5 +1,41 @@
 import { useState, useEffect } from "react";
 import { ValidationType } from "../types/types";
+import { useQuery } from "react-query";
+import { MovieClient } from "../utils/MoviApiClient/MoviClient";
+
+const movieClient = new MovieClient();
+
+type MapQuery = {
+  [key: string]: keyof MovieClient;
+};
+
+type MovieClientFunctions = (params: string) => Promise<any>;
+
+export const useMovies = (queryParams: string, queryType: string) => {
+  const mapQuery: MapQuery = {
+    newest: "getNewestMovies",
+    popular: "getPopularMovies",
+  };
+
+  const fetchMovies = async () => {
+    const queryFunctionName = mapQuery[queryType];
+    const fetchFunction = movieClient[
+      queryFunctionName
+    ] as MovieClientFunctions;
+    return await fetchFunction(queryParams);
+  };
+
+  const { data, error, isLoading } = useQuery(
+    [`${queryType}-movies`],
+    fetchMovies,
+    {
+      staleTime: 24 * (60 * 60 * 1000),
+      cacheTime: 24 * (60 * 60 * 1000),
+    }
+  );
+
+  return { [queryType]: data, error, isLoading };
+};
 
 export const useForm = (
   initialState: Record<string, unknown>,
