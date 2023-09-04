@@ -15,9 +15,13 @@
       padding: rem(16px) rem(16px) 0 0;
 
 
-      .sinopsis{
+      .description{
         max-width: 70%;
         text-align: justify;
+
+        @include mq(md) {
+          max-width: 100%;
+        }
       }
 
       h3{

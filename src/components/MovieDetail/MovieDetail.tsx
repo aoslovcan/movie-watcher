@@ -32,7 +32,7 @@ return(
 
       <div className="movie-detail__info__item">
         <h3>Sinopsis</h3>
-        <p className="sinopsis">
+        <p className="description">
           Dvadeset godina nakon događaja iz filma Zvjezdane staze: Nemesis, pratimo sada umirovljenog admirala Picarda u sljedećem poglavlju njegova života.
         </p>
       </div>

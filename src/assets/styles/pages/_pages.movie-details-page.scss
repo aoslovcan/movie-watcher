@@ -19,7 +19,6 @@
     }
 
     .left{
-      width: 30vw;
       @include mq(md) {
         display: none;
       }
