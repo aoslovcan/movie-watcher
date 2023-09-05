@@ -5,7 +5,12 @@ import { MovieListType } from "../../types/types";
 import MovieCard from "../MovieCard/MovieCard";
 import ArrowButton from "./ArrowButton";
 
-const MovieListSlider = ({ movieList }: MovieListType) => {
+type MovieListSliderProps = {
+  movieList : MovieListType;
+  category: string;
+}
+
+const MovieListSlider = ({ movieList, category } : MovieListSliderProps) => {
 
   return (
     <div>
@@ -13,8 +18,8 @@ const MovieListSlider = ({ movieList }: MovieListType) => {
         LeftArrow={<ArrowButton direction="left" />}
         RightArrow={<ArrowButton direction="right" />}
       >
-        {movieList.map(({ id, title, posterPath }) => (
-          <MovieCard title={title} posterPath={posterPath} id={id} key={id} />
+        {movieList.map((movie) => (
+          <MovieCard title={movie.title} posterPath={movie.posterPath} id={movie.id} key={movie.id} data={movie} />
         ))}
       </ScrollMenu>
     </div>

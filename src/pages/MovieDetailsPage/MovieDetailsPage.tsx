@@ -2,14 +2,16 @@ import React from "react";
 import MovieCard from "../../components/MovieCard/MovieCard";
 import { Tile } from "../../components/index";
 import MovieDetail from "../../components/MovieDetail/MovieDetail";
+import { useLocation } from "react-router-dom";
 
 const MovieDetailsPage = () => {
+  const location = useLocation();
+  const movieDetails = location.state.movieDetails;
+  const { id, posterPath, title } = movieDetails;
+  const uri = `https://image.tmdb.org/t/p/w500/${posterPath}`;
   const innerStyle = {
-    backgroundImage:
-      'url("https://image.tmdb.org/t/p/w500/4m1Au3YkjqsxF8iwQy0fPYSxE0h.jpg")',
+    backgroundImage: `url(${uri})`,
   };
-
-  const title = `Meg 2`;
 
   return (
     <div className="movie-details-page">
@@ -18,8 +20,8 @@ const MovieDetailsPage = () => {
         <div className="left">
           <MovieCard
             title="The movie"
-            posterPath="4m1Au3YkjqsxF8iwQy0fPYSxE0h.jpg"
-            id={1}
+            posterPath={posterPath}
+            id={id}
           />
         </div>
         <div className="right">

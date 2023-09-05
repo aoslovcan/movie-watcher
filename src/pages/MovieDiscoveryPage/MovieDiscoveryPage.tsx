@@ -55,11 +55,11 @@ const MovieDiscoveryPage = () => {
         hello
       </Tile>
       <Tile title="Newest movies">
-        <MovieListSlider movieList={getMovieList(newestMovies)} />
+        <MovieListSlider movieList={getMovieList(newestMovies)} category="newest"/>
       </Tile>
 
       <Tile title="Popular movies">
-        <MovieListSlider movieList={getMovieList(popularMovies)} />
+        <MovieListSlider movieList={getMovieList(popularMovies)} category="popular" />
       </Tile>
     </div>
   );
