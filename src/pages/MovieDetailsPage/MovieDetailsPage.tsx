@@ -26,7 +26,7 @@ const MovieDetailsPage = () => {
         </div>
         <div className="right">
           <Tile title={title}>
-            <MovieDetail />
+            <MovieDetail movieDetails={movieDetails}/>
           </Tile>
         </div>
       </div>
