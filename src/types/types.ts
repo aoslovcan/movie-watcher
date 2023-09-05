@@ -19,6 +19,7 @@ export type MovieCardType = {
   id: number | string;
   title: string;
   posterPath: string;
+  data?: MovieType;
 };
 
 export type MovieResponseType = {
@@ -42,7 +43,7 @@ export type MovieType = {
   voteCount: number;
   posterPath: string;
 };
-export type MovieListType = { movieList: Array<MovieType> };
+export type MovieListType = Array<MovieType>;
 
 export type TileProps = {
   title?: string;
