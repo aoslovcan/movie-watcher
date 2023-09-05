@@ -19,6 +19,7 @@ export type MovieCardType = {
   id: number | string;
   title: string;
   posterPath: string;
+  data?: MovieType;
 };
 
 export type MovieResponseType = {
@@ -30,6 +31,7 @@ export type MovieResponseType = {
   title: string;
   vote_average: number;
   vote_count: number;
+  genre_ids: Array<number>;
 };
 
 export type MovieType = {
@@ -41,8 +43,9 @@ export type MovieType = {
   voteAverage: number;
   voteCount: number;
   posterPath: string;
+  genres: Array<string>
 };
-export type MovieListType = { movieList: Array<MovieType> };
+export type MovieListType = Array<MovieType>;
 
 export type TileProps = {
   title?: string;
@@ -50,3 +53,12 @@ export type TileProps = {
   rightComponent?: string | ReactNode;
   children: ReactNode;
 };
+
+export type Genre = {
+  id: number;
+  name: string;
+}
+
+export type GenresType = {
+  genres: Array<Genre>
+}
