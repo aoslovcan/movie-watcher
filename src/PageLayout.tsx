@@ -1,5 +1,4 @@
 import React from "react";
-import logo from "./logo.svg";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { HomePage, MovieDiscoveryPage, MovieDetailsPage } from "./pages/index";
 import { NavBar } from "./components/index";
@@ -13,15 +12,9 @@ function PageLayout() {
       <div className="">
         <div className="">
           <Routes>
-            <Route path="/home" element={<HomePage />}></Route>
-            <Route
-              path="/discover-movies"
-              element={<MovieDiscoveryPage />}
-            ></Route>
-            <Route
-              path="/movie-details/:id"
-              element={<MovieDetailsPage />}
-            ></Route>
+            <Route path="/home" element={<HomePage />} />
+            <Route path="/discover-movies" element={<MovieDiscoveryPage />} />
+            <Route path="/movie-details/:id" element={<MovieDetailsPage />} />
             <Route index element={<Navigate to="/home" replace />} />
           </Routes>
         </div>
