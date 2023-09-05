@@ -5,36 +5,30 @@ import { MovieClient } from "../utils/MoviApiClient/MoviClient";
 
 const movieClient = new MovieClient();
 
-type MapQuery = {
-  [key: string]: keyof MovieClient;
-};
-
-type MovieClientFunctions = (params: string) => Promise<any>;
-
-export const useMovies = (queryParams: string, queryType: string) => {
-  const mapQuery: MapQuery = {
-    newest: "getNewestMovies",
-    popular: "getPopularMovies",
-  };
-
-  const fetchMovies = async () => {
-    const queryFunctionName = mapQuery[queryType];
-    const fetchFunction = movieClient[
-      queryFunctionName
-    ] as MovieClientFunctions;
-    return await fetchFunction(queryParams);
-  };
-
+export const useNewestMovies = (queryParams: string) => {
   const { data, error, isLoading } = useQuery(
-    [`${queryType}-movies`],
-    fetchMovies,
+    [`newest-movies`],
+    async () => await movieClient.getNewestMovies(queryParams),
     {
       staleTime: 24 * (60 * 60 * 1000),
       cacheTime: 24 * (60 * 60 * 1000),
     }
   );
 
-  return { [queryType]: data, error, isLoading };
+  return { newestMovies: data, error, isLoading };
+};
+
+export const usePopularMovies = (queryParams: string) => {
+  const { data, error, isLoading } = useQuery(
+    [`popular-movies`],
+    async () => await movieClient.getPopularMovies(queryParams),
+    {
+      staleTime: 24 * (60 * 60 * 1000),
+      cacheTime: 24 * (60 * 60 * 1000),
+    }
+  );
+
+  return { popularMovies: data, error, isLoading };
 };
 
 export const useForm = (
