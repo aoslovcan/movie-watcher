@@ -1,5 +1,35 @@
 import { useState, useEffect } from "react";
 import { ValidationType } from "../types/types";
+import { useQuery } from "react-query";
+import { MovieClient } from "../utils/MoviApiClient/MoviClient";
+
+const movieClient = new MovieClient();
+
+export const useNewestMovies = (queryParams: string) => {
+  const { data, error, isLoading } = useQuery(
+    [`newest-movies`],
+    async () => await movieClient.getNewestMovies(queryParams),
+    {
+      staleTime: 24 * (60 * 60 * 1000),
+      cacheTime: 24 * (60 * 60 * 1000),
+    }
+  );
+
+  return { newestMovies: data, error, isLoading };
+};
+
+export const usePopularMovies = (queryParams: string) => {
+  const { data, error, isLoading } = useQuery(
+    [`popular-movies`],
+    async () => await movieClient.getPopularMovies(queryParams),
+    {
+      staleTime: 24 * (60 * 60 * 1000),
+      cacheTime: 24 * (60 * 60 * 1000),
+    }
+  );
+
+  return { popularMovies: data, error, isLoading };
+};
 
 export const useForm = (
   initialState: Record<string, unknown>,

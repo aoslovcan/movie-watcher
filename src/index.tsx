@@ -4,17 +4,21 @@ import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 import PageLayout from "./PageLayout";
 import "react-horizontal-scrolling-menu/dist/styles.css";
-
 import reportWebVitals from "./reportWebVitals";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
+
+const query = new QueryClient();
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <PageLayout />
-    </BrowserRouter>
+    <QueryClientProvider client={query}>
+      <BrowserRouter>
+        <PageLayout />
+      </BrowserRouter>
+    </QueryClientProvider>
   </React.StrictMode>
 );
 
