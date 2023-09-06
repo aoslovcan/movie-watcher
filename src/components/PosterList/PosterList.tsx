@@ -1,13 +1,16 @@
 import React from "react";
 import PosterListItem from "./PosterListItem/PosterListItem";
 
-const PosterList = () => {
-  let arrayItem = [0, 1, 2, 3, 4];
+type PosterListProps = {
+  items : any
+}
+
+const PosterList = ({items} : PosterListProps) => {
 
   return (
     <div className="poster-list">
-      {arrayItem.map(() => (
-        <PosterListItem />
+      {items.map((item : any) => (
+        <PosterListItem key={item.id} posterPath={item.posterPath}/>
       ))}
     </div>
   );
