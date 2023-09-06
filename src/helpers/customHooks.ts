@@ -156,7 +156,7 @@ export const useStorage = (data: any, name: string | null, message: string) => {
   const addToLocalStorage = () => {
     const storageData = getDataFromStorage(storageName) || [];
 
-    if (storageData.some((item : any) => item.id !== data.id)) {
+    if (storageData.some((item : any) => item.id === data.id)) {
       alert(message);
       return;
     }
