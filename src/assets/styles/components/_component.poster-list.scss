@@ -1,16 +1,17 @@
 .poster-list {
   padding: rem(8px);
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
 
   &__item {
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 100%;
-    margin-bottom: rem(20px);
+    margin-bottom: rem(3px);
+    margin-right: rem(5px);
 
     &__details {
       color: $primary-white;
@@ -36,8 +37,8 @@
 
     &__image,
     img {
-      height: rem(90px);
-      width: rem(65px);
+     /* height: rem(90px);
+      width: rem(65px);*/
       border-radius: rem(8px);
     }
   }
