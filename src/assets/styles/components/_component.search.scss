@@ -49,6 +49,19 @@
   &__list {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
+    flex-direction: column;
+    padding: rem(10px);
+
+    &__item {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-bottom: rem(20px);
+
+      img {
+        width: 10%;
+        margin-right: rem(10px);
+      }
+    }
   }
 }

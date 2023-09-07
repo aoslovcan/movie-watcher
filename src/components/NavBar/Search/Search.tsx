@@ -1,11 +1,13 @@
 import React, { useState, useEffect, ChangeEvent } from "react";
 import { BsSearch } from "react-icons/bs";
-import { useForm } from "../../../helpers/customHooks";
+import { useFindMovie, useForm } from "../../../helpers/customHooks";
+import Modal from "../../../common/Modal/Modal";
 
 const SearchBar = () => {
   const [isSearch, setIsSearch] = useState(false);
   const suggestionData = ["Movie Super", "MovieTwo", "Movie Three", "Movie 4"];
   let suggestionClassName = `suggestion ${isSearch ? "" : "hidde"}`;
+  const [searchResult, setSearchResult] = useState([]);
 
   const initialForm: Record<string, unknown> = {
     searchValue: "",
@@ -25,6 +27,11 @@ const SearchBar = () => {
     setFormData({ ...initialForm });
   }, []);
 
+  // @ts-ignore
+  const { movies, error, isLoading } = useFindMovie(formData?.searchValue);
+
+
+
   const changeInputValue = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
     inputField: string
@@ -34,7 +41,10 @@ const SearchBar = () => {
         value: e.target.value,
       },
     });
+
+    // @ts-ignore
   };
+
 
   return (
     <div className="search-bar">
@@ -43,7 +53,6 @@ const SearchBar = () => {
         <input
           className="search__input"
           onFocus={() => setIsSearch(true)}
-          onBlur={() => setIsSearch(false)}
           onChange={(e) => changeInputValue(e, "searchValue")}
           type="text"
           placeholder="Search.."
@@ -52,21 +61,21 @@ const SearchBar = () => {
         />
       </div>
 
-      <div className={suggestionClassName}>
-        <ul className="suggestion__list">
-          {!formData?.searchValue ? (
-            suggestionData.map((item) => (
-              <li className="suggestion__list__item">
-                <button className="button button__rounded medium transparent">
-                  <BsSearch /> {item}
-                </button>
-              </li>
-            ))
-          ) : (
-            <p>List of movies goes here</p>
-          )}
-        </ul>
-      </div>
+      {isSearch ? <Modal id="suggestion-modal" title="">
+        <div className="suggestion__list">
+          {// @ts-ignore
+            movies?.results ? movies?.results.map((movie) => ( <div className="suggestion__list__item">
+            <img alt="test" src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}/>
+            <div className="info">
+              <h3>{movie.title}</h3>
+            </div>
+          </div>)) : null
+          }
+        </div>
+      </Modal> : (<p>Items</p>)}
+
+
+
     </div>
   );
 };
