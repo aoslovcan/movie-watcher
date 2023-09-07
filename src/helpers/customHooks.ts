@@ -44,11 +44,25 @@ export const useGenre = () => {
   return { genres: data, error, isLoading };
 };
 
+export function useDebounce<T>(value: T, delay?: number): T {
+  const [debouncedValue, setDebouncedValue] = useState<T>(value)
+
+  useEffect(() => {
+    const timer = setTimeout(() => setDebouncedValue(value), delay || 500)
+
+    return () => {
+      clearTimeout(timer)
+    }
+  }, [value, delay])
+
+  return debouncedValue
+}
 
 export const useFindMovie = (queryParam : string) => {
+  const debouncedQueryParam = useDebounce(queryParam, 500);
   const { data, error, isLoading } = useQuery(
-    [`movies`],
-    async () => await movieClient.findMovie(queryParam),
+    [`movies`, debouncedQueryParam],
+    async () => await movieClient.findMovie(debouncedQueryParam),
     {
       staleTime: 24 * (60 * 60 * 1000),
       cacheTime: 24 * (60 * 60 * 1000)
