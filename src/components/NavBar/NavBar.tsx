@@ -28,7 +28,7 @@ const NavBar = () => {
           tabIndex={0}
           className="navbar__link"
           onClick={openFavourites}
-          onBlur={openFavourites}
+          //onBlur={openFavourites}
         >
           Favourites {favouritesIcon}
         </div>

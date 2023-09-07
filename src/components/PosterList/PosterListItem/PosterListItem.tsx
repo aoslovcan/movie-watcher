@@ -1,17 +1,30 @@
 import React from "react";
+import {BsTrash3Fill} from "react-icons/bs";
+import { useStorage } from "../../../helpers/customHooks";
+type PosterListItemProps = {
+  id: number;
+  posterPath : string,
+  update: () => void
+}
 
-const PosterListItem = () => {
+const PosterListItem = ({id, posterPath, update} : PosterListItemProps) => {
+  const [addToLocalStorage, removeFromLocalStorage] = useStorage({ id : id }, "favorites", "");
+
+  const removeItem = (ev: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
+    ev.preventDefault();
+    removeFromLocalStorage();
+    update();
+  }
+
+  const imgSrc = `https://image.tmdb.org/t/p/w200/${posterPath}`;
   return (
     <div className="poster-list__item">
       <div className="poster-list__item__image">
+        <span className="action" onClick={(e) => removeItem(e)}><BsTrash3Fill/></span>
         <img
           alt="poster"
-          src="https://image.tmdb.org/t/p/w200/4m1Au3YkjqsxF8iwQy0fPYSxE0h.jpg"
+          src={imgSrc}
         />
-      </div>
-      <div className="poster-list__item__details">
-        <h3 className="title">Film</h3>
-        <span className="description">film, 2023</span>
       </div>
     </div>
   );
