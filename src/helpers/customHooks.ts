@@ -167,6 +167,7 @@ export const useStorage = (data: any, name: string | null, message: string) => {
     const storageData = getDataFromStorage(storageName) || [];
 
     const filterStorage = storageData.filter((item : any) => item.id !== data.id);
+    localStorage.removeItem(filterStorage);
     localStorage.setItem(storageName, JSON.stringify(filterStorage));
   };
 
