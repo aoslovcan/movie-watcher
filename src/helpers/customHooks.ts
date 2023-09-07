@@ -44,6 +44,20 @@ export const useGenre = () => {
   return { genres: data, error, isLoading };
 };
 
+
+export const useFindMovie = (queryParam : string) => {
+  const { data, error, isLoading } = useQuery(
+    [`movies`],
+    async () => await movieClient.findMovie(queryParam),
+    {
+      staleTime: 24 * (60 * 60 * 1000),
+      cacheTime: 24 * (60 * 60 * 1000)
+    }
+  );
+
+  return { movies: data, error, isLoading };
+}
+
 export const useForm = (
   initialState: Record<string, unknown>,
   validations: ValidationType
