@@ -1,7 +1,11 @@
 import React from "react";
 import MovieListSlider from "../../components/MovieListSlider/MovieListSlider";
 import { Tile } from "../../components/index";
-import { useGenre, useNewestMovies, usePopularMovies } from "../../helpers/customHooks";
+import {
+  useGenre,
+  useNewestMovies,
+  usePopularMovies,
+} from "../../helpers/customHooks";
 import { MovieResponseType, GenresType } from "../../types/types";
 
 const MovieDiscoveryPage = () => {
@@ -9,12 +13,14 @@ const MovieDiscoveryPage = () => {
 
   const { newestMovies } = useNewestMovies(queryParams);
   const { popularMovies } = usePopularMovies(queryParams);
-  const {genres} = useGenre();
+  const { genres } = useGenre();
 
-  const getGenresName = (genresIds : Array<number>) => {
+  const getGenresName = (genresIds: Array<number>) => {
     return genresIds.map((i) => {
-      const matchingGenre = (genres as GenresType)?.genres.find(({ id }) => id === i);
-      return matchingGenre ? matchingGenre.name : 'Unknown';
+      const matchingGenre = (genres as GenresType)?.genres.find(
+        ({ id }) => id === i
+      );
+      return matchingGenre ? matchingGenre.name : "Unknown";
     });
   };
 
@@ -32,7 +38,7 @@ const MovieDiscoveryPage = () => {
           title,
           vote_average,
           vote_count,
-           genre_ids,
+          genre_ids,
         }: MovieResponseType) => {
           return {
             id: id,
@@ -43,7 +49,7 @@ const MovieDiscoveryPage = () => {
             voteAverage: vote_average,
             voteCount: vote_count,
             posterPath: poster_path,
-            genres: getGenresName(genre_ids)
+            genres: getGenresName(genre_ids),
           };
         }
       );
@@ -65,11 +71,17 @@ const MovieDiscoveryPage = () => {
         hello
       </Tile>
       <Tile title="Newest movies">
-        <MovieListSlider movieList={getMovieList(newestMovies)} category="newest"/>
+        <MovieListSlider
+          movieList={getMovieList(newestMovies)}
+          category="newest"
+        />
       </Tile>
 
       <Tile title="Popular movies">
-        <MovieListSlider movieList={getMovieList(popularMovies)} category="popular" />
+        <MovieListSlider
+          movieList={getMovieList(popularMovies)}
+          category="popular"
+        />
       </Tile>
     </div>
   );

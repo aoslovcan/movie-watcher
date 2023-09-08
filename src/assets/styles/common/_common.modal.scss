@@ -1,12 +1,12 @@
-.favourites-container {
-  width: 100%;
-  position: absolute;
+.modal-container {
+  width: 90%;
+  position: fixed;
   background: $dark-grey;
   z-index: 9999;
   padding: rem(10px);
   color: $primary-white;
   font-family: $font-primary;
-  margin-top: rem(50px);
+  left: 0;
 
   &__inner {
     overflow-y: scroll;
@@ -20,18 +20,5 @@
     h2 {
       @include fontSize("a1");
     }
-  }
-}
-
-.favourites-button {
-  z-index: 9;
-  color: #fff;
-  opacity: 0.5;
-  position: absolute;
-  font-size: 33px;
-  cursor: pointer;
-
-  &:hover {
-    opacity: 0.7;
   }
 }

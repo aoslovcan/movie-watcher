@@ -14,7 +14,10 @@ function PageLayout() {
           <Routes>
             <Route path="/home" element={<HomePage />} />
             <Route path="/discover-movies" element={<MovieDiscoveryPage />} />
-            <Route path="/movie-details/:movieId" element={<MovieDetailsPage />} />
+            <Route
+              path="/movie-details/:movieId"
+              element={<MovieDetailsPage />}
+            />
             <Route index element={<Navigate to="/home" replace />} />
           </Routes>
         </div>

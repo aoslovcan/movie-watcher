@@ -18,15 +18,11 @@ const MovieDetailsPage = () => {
       <div className="movie-details-page__header" style={innerStyle} />
       <div className="movie-details-page__box">
         <div className="left">
-          <MovieCard
-            title="The movie"
-            posterPath={posterPath}
-            id={id}
-          />
+          <MovieCard title="The movie" posterPath={posterPath} id={id} />
         </div>
         <div className="right">
           <Tile title={title}>
-            <MovieDetail movieDetails={movieDetails}/>
+            <MovieDetail movieDetails={movieDetails} />
           </Tile>
         </div>
       </div>
