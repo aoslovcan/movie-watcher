@@ -6,12 +6,11 @@ import MovieCard from "../MovieCard/MovieCard";
 import ArrowButton from "./ArrowButton";
 
 type MovieListSliderProps = {
-  movieList : MovieListType;
+  movieList: MovieListType;
   category: string;
-}
+};
 
-const MovieListSlider = ({ movieList, category } : MovieListSliderProps) => {
-
+const MovieListSlider = ({ movieList, category }: MovieListSliderProps) => {
   return (
     <div>
       <ScrollMenu
@@ -19,7 +18,13 @@ const MovieListSlider = ({ movieList, category } : MovieListSliderProps) => {
         RightArrow={<ArrowButton direction="right" />}
       >
         {movieList.map((movie) => (
-          <MovieCard title={movie.title} posterPath={movie.posterPath} id={movie.id} key={movie.id} data={movie} />
+          <MovieCard
+            title={movie.title}
+            posterPath={movie.posterPath}
+            id={movie.id}
+            key={movie.id}
+            data={movie}
+          />
         ))}
       </ScrollMenu>
     </div>

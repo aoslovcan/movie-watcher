@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import PosterList from "../PosterList/PosterList";
 import { getDataFromStorage } from "../../helpers/customHooks";
 
-
 const Favourites = () => {
   const [favoritesData, setFavoritesData] = useState([]);
 
@@ -20,10 +19,11 @@ const Favourites = () => {
         <h2>Favourites movies</h2>
       </div>
       <div className="favourites-container__inner">
-        {
-          favoritesData?.length ? (<PosterList items={favoritesData} updateList={getFavoritesData} />) : (
-            <p>No items</p>)
-        }
+        {favoritesData?.length ? (
+          <PosterList items={favoritesData} updateList={getFavoritesData} />
+        ) : (
+          <p>No items</p>
+        )}
       </div>
     </div>
   );

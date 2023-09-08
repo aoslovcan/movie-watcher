@@ -4,7 +4,7 @@ type ModalProps = {
   id: string;
   title: string;
   children: ReactNode;
-}
+};
 
 const Modal = ({ id, title, children }: ModalProps) => {
   return (
@@ -12,9 +12,7 @@ const Modal = ({ id, title, children }: ModalProps) => {
       <div className="modal-container__title">
         <h2>{title}</h2>
       </div>
-      <div className="modal-container__inner">
-        {children}
-      </div>
+      <div className="modal-container__inner">{children}</div>
     </div>
   );
 };

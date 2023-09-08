@@ -21,16 +21,16 @@ export class MovieClient extends ApiClient {
     return this.fetchApi(url, data);
   }
 
-  getMovieGenre() : Promise<Record<string, unknown>> {
-  let url: string = `${process.env.REACT_APP_BASE_API_URI}/genre/movie/list?api_key=${process.env.REACT_APP_API_KEY}`;
-  let data: {} = {
-    method: "GET",
-  };
+  getMovieGenre(): Promise<Record<string, unknown>> {
+    let url: string = `${process.env.REACT_APP_BASE_API_URI}/genre/movie/list?api_key=${process.env.REACT_APP_API_KEY}`;
+    let data: {} = {
+      method: "GET",
+    };
 
-  return this.fetchApi(url, data);
-}
+    return this.fetchApi(url, data);
+  }
 
-  findMovie(queryParam : string) : Promise<Record<string, unknown>>{
+  findMovie(queryParam: string): Promise<Record<string, unknown>> {
     let url: string = `${process.env.REACT_APP_BASE_API_URI}/search/movie?api_key=${process.env.REACT_APP_API_KEY}&query=${queryParam}`;
     let data: {} = {
       method: "GET",

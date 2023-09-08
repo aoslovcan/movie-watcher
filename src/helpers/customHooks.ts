@@ -11,7 +11,7 @@ export const useNewestMovies = (queryParams: string) => {
     async () => await movieClient.getNewestMovies(queryParams),
     {
       staleTime: 24 * (60 * 60 * 1000),
-      cacheTime: 24 * (60 * 60 * 1000)
+      cacheTime: 24 * (60 * 60 * 1000),
     }
   );
 
@@ -24,7 +24,7 @@ export const usePopularMovies = (queryParams: string) => {
     async () => await movieClient.getPopularMovies(queryParams),
     {
       staleTime: 24 * (60 * 60 * 1000),
-      cacheTime: 24 * (60 * 60 * 1000)
+      cacheTime: 24 * (60 * 60 * 1000),
     }
   );
 
@@ -37,7 +37,7 @@ export const useGenre = () => {
     async () => await movieClient.getMovieGenre(),
     {
       staleTime: 24 * (60 * 60 * 1000),
-      cacheTime: 24 * (60 * 60 * 1000)
+      cacheTime: 24 * (60 * 60 * 1000),
     }
   );
 
@@ -45,32 +45,32 @@ export const useGenre = () => {
 };
 
 export function useDebounce<T>(value: T, delay?: number): T {
-  const [debouncedValue, setDebouncedValue] = useState<T>(value)
+  const [debouncedValue, setDebouncedValue] = useState<T>(value);
 
   useEffect(() => {
-    const timer = setTimeout(() => setDebouncedValue(value), delay || 500)
+    const timer = setTimeout(() => setDebouncedValue(value), delay || 500);
 
     return () => {
-      clearTimeout(timer)
-    }
-  }, [value, delay])
+      clearTimeout(timer);
+    };
+  }, [value, delay]);
 
-  return debouncedValue
+  return debouncedValue;
 }
 
-export const useFindMovie = (queryParam : string) => {
+export const useFindMovie = (queryParam: string) => {
   const debouncedQueryParam = useDebounce(queryParam, 500);
   const { data, error, isLoading } = useQuery(
     [`movies`, debouncedQueryParam],
     async () => await movieClient.findMovie(debouncedQueryParam),
     {
       staleTime: 24 * (60 * 60 * 1000),
-      cacheTime: 24 * (60 * 60 * 1000)
+      cacheTime: 24 * (60 * 60 * 1000),
     }
   );
 
   return { movies: data, error, isLoading };
-}
+};
 
 export const useForm = (
   initialState: Record<string, unknown>,
@@ -96,7 +96,7 @@ export const useForm = (
         if (valueRequired && !value) {
           return {
             ...errors,
-            [fieldName]: validation?.required?.message
+            [fieldName]: validation?.required?.message,
           };
         }
         //required and custom validation
@@ -107,7 +107,7 @@ export const useForm = (
         ) {
           return {
             ...errors,
-            [fieldName]: validation?.custom?.message
+            [fieldName]: validation?.custom?.message,
           };
         }
 
@@ -118,7 +118,7 @@ export const useForm = (
         ) {
           return {
             ...errors,
-            [fieldName]: validation.minLength.message
+            [fieldName]: validation.minLength.message,
           };
         }
 
@@ -129,7 +129,7 @@ export const useForm = (
         ) {
           return {
             ...errors,
-            [fieldName]: validation.maxLength.message
+            [fieldName]: validation.maxLength.message,
           };
         }
 
@@ -154,26 +154,25 @@ export const useForm = (
 
   const handleChange =
     (formField: string) =>
-      ({ target }: any) => {
-        const value = target.value;
+    ({ target }: any) => {
+      const value = target.value;
 
-        setFormData({
-          ...formData,
-          [formField]: value
-        });
-      };
+      setFormData({
+        ...formData,
+        [formField]: value,
+      });
+    };
 
   return {
     formData,
     formErrors,
     isValidForm,
     setFormData,
-    handleChange
+    handleChange,
   };
 };
 
 export const getDataFromStorage = (name: string | null) => {
-
   const storageName = name || "";
   return JSON.parse(localStorage.getItem(storageName) || "[]");
 };
@@ -184,7 +183,7 @@ export const useStorage = (data: any, name: string | null, message: string) => {
   const addToLocalStorage = () => {
     const storageData = getDataFromStorage(storageName) || [];
 
-    if (storageData.some((item : any) => item.id === data.id)) {
+    if (storageData.some((item: any) => item.id === data.id)) {
       alert(message);
       return;
     }
@@ -194,11 +193,12 @@ export const useStorage = (data: any, name: string | null, message: string) => {
   const removeFromLocalStorage = () => {
     const storageData = getDataFromStorage(storageName) || [];
 
-    const filterStorage = storageData.filter((item : any) => item.id !== data.id);
+    const filterStorage = storageData.filter(
+      (item: any) => item.id !== data.id
+    );
     localStorage.removeItem(filterStorage);
     localStorage.setItem(storageName, JSON.stringify(filterStorage));
   };
 
   return [addToLocalStorage, removeFromLocalStorage];
-
 };

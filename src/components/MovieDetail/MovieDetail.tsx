@@ -2,18 +2,12 @@ import React from "react";
 import { MovieType } from "../../types/types";
 
 type MovieDetailProps = {
-  movieDetails :MovieType
-}
+  movieDetails: MovieType;
+};
 
-const MovieDetail = ({movieDetails} : MovieDetailProps) => {
-
-  const {
-    originalTitle,
-    releaseDate,
-    overview,
-    voteAverage,
-    genres
-    } = movieDetails
+const MovieDetail = ({ movieDetails }: MovieDetailProps) => {
+  const { originalTitle, releaseDate, overview, voteAverage, genres } =
+    movieDetails;
 
   const date = new Date(releaseDate);
   const yearOfRelease = date.getFullYear();
@@ -31,7 +25,11 @@ const MovieDetail = ({movieDetails} : MovieDetailProps) => {
         </div>
         <div className="movie-detail__info__item">
           <h3>Žanrovi</h3>
-          <span>{genres?.map((genre) => (<span>{genre}, </span>))}</span>
+          <span>
+            {genres?.map((genre) => (
+              <span>{genre}, </span>
+            ))}
+          </span>
         </div>
         <div className="movie-detail__info__item">
           <h3>Godina proizvodnje</h3>
@@ -40,9 +38,7 @@ const MovieDetail = ({movieDetails} : MovieDetailProps) => {
 
         <div className="movie-detail__info__item">
           <h3>Sinopsis</h3>
-          <p className="description">
-            {overview}
-          </p>
+          <p className="description">{overview}</p>
         </div>
       </div>
     </div>
