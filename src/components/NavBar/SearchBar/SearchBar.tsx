@@ -2,26 +2,22 @@ import React, { useState, useEffect, ChangeEvent } from "react";
 import { BsSearch } from "react-icons/bs";
 import { useFindMovie, useForm } from "../../../helpers/customHooks";
 import Modal from "../../../common/Modal/Modal";
+import PosterListItem from "../../PosterList/PosterListItem/PosterListItem";
+import { ValidationType } from "../../../types/types";
 
 const SearchBar = () => {
   const [isSearch, setIsSearch] = useState(false);
-  const suggestionData = ["Movie Super", "MovieTwo", "Movie Three", "Movie 4"];
-  let suggestionClassName = `suggestion ${isSearch ? "" : "hidde"}`;
-  const [searchResult, setSearchResult] = useState([]);
 
   const initialForm: Record<string, unknown> = {
     searchValue: "",
   };
 
-  const validations = {};
+  const validations: ValidationType = {
+    string: undefined,
+  };
 
   const { formData, setFormData, handleChange, isValidForm, formErrors } =
-    useForm(
-      initialForm,
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      validations
-    );
+    useForm(initialForm, validations);
 
   useEffect(() => {
     setFormData({ ...initialForm });
@@ -29,8 +25,6 @@ const SearchBar = () => {
 
   // @ts-ignore
   const { movies, error, isLoading } = useFindMovie(formData?.searchValue);
-
-
 
   const changeInputValue = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -41,10 +35,7 @@ const SearchBar = () => {
         value: e.target.value,
       },
     });
-
-    // @ts-ignore
   };
-
 
   return (
     <div className="search-bar">
@@ -53,29 +44,33 @@ const SearchBar = () => {
         <input
           className="search__input"
           onFocus={() => setIsSearch(true)}
+          onBlur={() => setIsSearch(false)}
           onChange={(e) => changeInputValue(e, "searchValue")}
           type="text"
           placeholder="Search.."
-          //value={formData.searchValue}
           name="search"
         />
       </div>
 
-      {isSearch ? <Modal id="suggestion-modal" title="">
-        <div className="suggestion__list">
-          {// @ts-ignore
-            movies?.results ? movies?.results.map((movie) => ( <div className="suggestion__list__item">
-            <img alt="test" src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}/>
-            <div className="info">
-              <h3>{movie.title}</h3>
-            </div>
-          </div>)) : null
-          }
-        </div>
-      </Modal> : (<p>Items</p>)}
-
-
-
+      {isSearch && (
+        <Modal id="suggestion-modal" title="Movies">
+          <div className="search-bar__list">
+            {
+              // @ts-ignore
+              movies?.results
+                ? movies?.results.map((movie) => (
+                    <PosterListItem
+                      id={movie.id}
+                      itemClass="search-bar__list__item"
+                      posterPath={movie.poster_path}
+                      title={movie.title}
+                    />
+                  ))
+                : null
+            }
+          </div>
+        </Modal>
+      )}
     </div>
   );
 };
