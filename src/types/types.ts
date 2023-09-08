@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 
 export interface ValidationType {
   string:
@@ -43,7 +43,7 @@ export type MovieType = {
   voteAverage: number;
   voteCount: number;
   posterPath: string;
-  genres: Array<string>
+  genres: Array<string>;
 };
 export type MovieListType = Array<MovieType>;
 
@@ -57,8 +57,8 @@ export type TileProps = {
 export type Genre = {
   id: number;
   name: string;
-}
+};
 
 export type GenresType = {
-  genres: Array<Genre>
-}
+  genres: Array<Genre>;
+};
