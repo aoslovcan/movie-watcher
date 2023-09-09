@@ -1,7 +1,7 @@
 import React, { useState, useEffect, ChangeEvent } from "react";
 import { BsSearch } from "react-icons/bs";
 import { useFindMovie, useForm } from "../../../helpers/customHooks";
-import Modal from "../../../common/Modal/Modal";
+import { Modal } from "../../../common/commonIndex";
 import PosterListItem from "../../PosterList/PosterListItem/PosterListItem";
 import { ValidationType } from "../../../types/types";
 

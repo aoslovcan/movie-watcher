@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { PosterList } from "../../index";
 import { getDataFromStorage } from "../../../helpers/customHooks";
-import Modal from "../../../common/Modal/Modal";
+import { Modal } from "../../../common/commonIndex";
 
 const Favourites = () => {
   const [favoritesData, setFavoritesData] = useState([]);
