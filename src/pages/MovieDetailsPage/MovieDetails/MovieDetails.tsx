@@ -1,5 +1,6 @@
 import React from "react";
 import { MovieType } from "../../../types/types";
+import { getDate } from "../../../helpers/commonFunc";
 
 type MovieDetailProps = {
   movieDetails: MovieType;
@@ -10,7 +11,7 @@ const MovieDetails = ({ movieDetails }: MovieDetailProps) => {
     movieDetails;
 
   const date = new Date(releaseDate);
-  const yearOfRelease = date.getFullYear();
+  const [year] = getDate(date);
 
   const itemList = [
     {
@@ -31,7 +32,7 @@ const MovieDetails = ({ movieDetails }: MovieDetailProps) => {
     {
       id: 3,
       title: "Year",
-      data: yearOfRelease
+      data: year
     },
     {
       id: 4,
