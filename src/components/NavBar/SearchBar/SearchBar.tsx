@@ -55,20 +55,17 @@ const SearchBar = () => {
       {isSearch && (
         <Modal id="suggestion-modal" title="Movies">
           <div className="search-bar__list">
-            {
-
-              movies?.results
-                ? // @ts-ignore
+            {movies?.results
+              ? // @ts-ignore
                 movies?.results.map((movie) => (
-                    <PosterListItem
-                      id={movie.id}
-                      itemClass="search-bar__list__item"
-                      posterPath={movie.poster_path}
-                      title={movie.title}
-                    />
-                  ))
-                : null
-            }
+                  <PosterListItem
+                    id={movie.id}
+                    itemClass="search-bar__list__item"
+                    posterPath={movie.poster_path}
+                    title={movie.title}
+                  />
+                ))
+              : null}
           </div>
         </Modal>
       )}

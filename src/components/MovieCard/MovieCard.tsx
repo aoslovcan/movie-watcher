@@ -3,7 +3,7 @@ import { BsFillBookmarkFill } from "react-icons/bs";
 import { MovieCardType } from "../../types/types";
 import { useNavigate } from "react-router-dom";
 import { useStorage } from "../../helpers/customHooks";
-import {PosterPicture} from "../../common/commonIndex";
+import { PosterPicture } from "../../common/commonIndex";
 
 const MovieCard = ({ id, title, posterPath, data }: MovieCardType) => {
   const navigate = useNavigate();
@@ -36,7 +36,7 @@ const MovieCard = ({ id, title, posterPath, data }: MovieCardType) => {
         className="favourites-button"
         onClick={(e) => addToFavourite(e)}
       />
-      <PosterPicture width="500" imgPath={posterPath} altTitle={title}/>
+      <PosterPicture width="500" imgPath={posterPath} altTitle={title} />
     </div>
   );
 };

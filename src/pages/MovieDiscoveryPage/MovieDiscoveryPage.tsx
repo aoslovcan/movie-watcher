@@ -60,8 +60,6 @@ const MovieDiscoveryPage = () => {
     return [];
   };
 
-
-
   const dateInfo = (
     <div className="calendar-icon">
       <div className="calendar-icon__month">{month}</div>
@@ -72,7 +70,7 @@ const MovieDiscoveryPage = () => {
   return (
     <div className="pg-lyt">
       <Tile title="Discover daily" leftComponent={dateInfo}>
-       Discover movies
+        Discover movies
       </Tile>
       <Tile title="Newest movies">
         <MovieListSlider

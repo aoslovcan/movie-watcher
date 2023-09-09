@@ -41,7 +41,7 @@ const PosterListItem = ({
             <BsTrash3Fill />
           </span>
         )}
-        <PosterPicture width="200" imgPath={posterPath} altTitle=""/>
+        <PosterPicture width="200" imgPath={posterPath} altTitle="" />
       </div>
       {title && (
         <div className="info">

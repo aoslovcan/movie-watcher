@@ -17,28 +17,28 @@ const MovieDetails = ({ movieDetails }: MovieDetailProps) => {
     {
       id: 1,
       title: "Original title",
-      data: originalTitle
+      data: originalTitle,
     },
     {
       id: 2,
       title: "Rating",
-      data: voteAverage
+      data: voteAverage,
     },
     {
       id: 2,
       title: "Genres",
-      data: genres
+      data: genres,
     },
     {
       id: 3,
       title: "Year",
-      data: year
+      data: year,
     },
     {
       id: 4,
       title: "Overview",
-      data: overview
-    }
+      data: overview,
+    },
   ];
 
   return (
@@ -47,7 +47,11 @@ const MovieDetails = ({ movieDetails }: MovieDetailProps) => {
         {itemList.map(({ id, title, data }) => (
           <div key={id} className="movie-detail__info__item">
             <h3>{title}</h3>
-            {title !== "Overview" ? <span>{data}</span> : <p className="description">{overview}</p>}
+            {title !== "Overview" ? (
+              <span>{data}</span>
+            ) : (
+              <p className="description">{overview}</p>
+            )}
           </div>
         ))}
       </div>
