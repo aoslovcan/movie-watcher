@@ -36,7 +36,7 @@
 .transparent {
   background: transparent;
   color: $primary-grey;
-  border: 1px solid $primary-grey;
+  border: rem(1px) solid $primary-grey;
 }
 
 .medium {
@@ -46,4 +46,17 @@
 .arrow {
   color: white;
   @include fontSize("a1");
+}
+
+.favourites-button {
+  z-index: 9;
+  color: $primary-white;
+  opacity: 0.5;
+  position: absolute;
+  @include fontSize("a3");
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.7;
+  }
 }

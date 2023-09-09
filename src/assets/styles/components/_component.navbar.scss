@@ -20,7 +20,7 @@
 
   &__link {
     color: $primary-grey;
-    margin: 0 15px;
+    margin: 0 rem(15px);
     font-family: $font-primary;
     display: flex;
     align-items: center;
@@ -31,7 +31,7 @@
     z-index: 1;
   }
 
-  #favourites-modal{
+  #favourites-modal {
     margin-top: rem(50px);
   }
 }

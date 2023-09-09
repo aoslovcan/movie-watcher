@@ -32,7 +32,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 4px 10px;
+  padding: rem(4px) rem(10px);
   border-radius: rem(5px);
   font-family: $font-primary;
   background: $dark-grey;
@@ -42,8 +42,8 @@
     -moz-transition-duration: 0.4s;
     -webkit-transition-duration: 0.4s;
     -o-transition-duration: 0.4s;
-    background-color: white;
-    color: black;
+    background-color: $primary-white;
+    color: $primary-black;
   }
 
   &__icon {
@@ -54,7 +54,7 @@
     border: none;
     background: transparent;
     margin: 0;
-    padding: 7px 8px;
+    padding: rem(7px) rem(8px);
     @include fontSize("b2");
     color: $primary-grey;
     border: 1px solid transparent;

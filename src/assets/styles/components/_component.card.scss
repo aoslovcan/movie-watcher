@@ -4,7 +4,7 @@ $rem5: rem(5px);
   position: relative;
   display: flex;
   overflow: hidden;
-  background: #0a151f;
+  background: $secondary-grey;
   transition: opacity 0.1s ease;
   border-radius: $rem5;
   width: 200px;
