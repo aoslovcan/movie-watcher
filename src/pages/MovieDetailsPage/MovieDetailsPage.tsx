@@ -1,7 +1,7 @@
 import React from "react";
 import MovieCard from "../../components/MovieCard/MovieCard";
 import { Tile } from "../../components/index";
-import MovieDetail from "../../components/MovieDetail/MovieDetail";
+import MovieDetails from "./MovieDetails/MovieDetails";
 import { useLocation } from "react-router-dom";
 
 const MovieDetailsPage = () => {
@@ -22,7 +22,7 @@ const MovieDetailsPage = () => {
         </div>
         <div className="right">
           <Tile title={title}>
-            <MovieDetail movieDetails={movieDetails} />
+            <MovieDetails movieDetails={movieDetails} />
           </Tile>
         </div>
       </div>
