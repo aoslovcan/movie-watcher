@@ -9,7 +9,7 @@ type PosterListProps = {
 const PosterList = ({ items, updateList }: PosterListProps) => {
   return (
     <div className="poster-list">
-      {items.map((item: any) => (
+      {items?.length ? items.map((item: any) => (
         <PosterListItem
           id={item.id}
           key={item.id}
@@ -17,7 +17,7 @@ const PosterList = ({ items, updateList }: PosterListProps) => {
           update={updateList}
           actionRemove={true}
         />
-      ))}
+      )) : <p>No items</p>}
     </div>
   );
 };

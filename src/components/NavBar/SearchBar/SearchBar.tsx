@@ -56,9 +56,10 @@ const SearchBar = () => {
         <Modal id="suggestion-modal" title="Movies">
           <div className="search-bar__list">
             {
-              // @ts-ignore
+
               movies?.results
-                ? movies?.results.map((movie) => (
+                ? // @ts-ignore
+                movies?.results.map((movie) => (
                     <PosterListItem
                       id={movie.id}
                       itemClass="search-bar__list__item"

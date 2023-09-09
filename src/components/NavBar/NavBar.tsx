@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Search from "./SearchBar/SearchBar";
 import { Link } from "react-router-dom";
 import { CgChevronDown, CgChevronUp } from "react-icons/cg";
-import Favourites from "../Favourites/Favourites";
+import Favourites from "./Favourites/Favourites"
 
 const NavBar = () => {
   const [isFavouritesOpen, setIsFavouritesOpen] = useState(false);
@@ -28,7 +28,6 @@ const NavBar = () => {
           tabIndex={0}
           className="navbar__link"
           onClick={openFavourites}
-          //onBlur={openFavourites}
         >
           Favourites {favouritesIcon}
         </div>
