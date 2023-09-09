@@ -1,9 +1,8 @@
 import React from "react";
-import { Header, NavBar } from "../../components/index";
+import { Header } from "../../components/index";
 import bgImage from "../../assets/images/hero-bg.png";
 
 const HomePage = () => {
-  const openDiscoveryPage = () => {};
 
   return (
     <div className="home">
