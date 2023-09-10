@@ -12,13 +12,15 @@ h1 {
 }
 
 h2 {
-  @include fontSize("b1");
+  @include fontSize("a2");
 }
 
 h3 {
+  @include fontSize("a1");
 }
 
 h4 {
+  @include fontSize("b0");
 }
 
 h5 {

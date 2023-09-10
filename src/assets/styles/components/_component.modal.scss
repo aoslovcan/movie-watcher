@@ -16,9 +16,5 @@
   &__title {
     padding: rem(5px);
     border-bottom: rem(1px) solid $primary-white;
-
-    h2 {
-      @include fontSize("a1");
-    }
   }
 }

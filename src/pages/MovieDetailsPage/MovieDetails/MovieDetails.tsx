@@ -46,7 +46,7 @@ const MovieDetails = ({ movieDetails }: MovieDetailProps) => {
       <div className="movie-detail__info">
         {itemList.map(({ id, title, data }) => (
           <div key={id} className="movie-detail__info__item">
-            <h3>{title}</h3>
+            <h4>{title}</h4>
             {title !== "Overview" ? (
               <span>{data}</span>
             ) : (
