@@ -68,7 +68,7 @@ const MovieDiscoveryPage = () => {
   );
 
   return (
-    <div className="pg-lyt">
+    <div className="u-pg-lyt">
       <Tile title="Discover daily" leftComponent={dateInfo}>
         Discover movies
       </Tile>
