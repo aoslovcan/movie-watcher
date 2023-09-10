@@ -3,7 +3,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import { HomePage, MovieDiscoveryPage, MovieDetailsPage } from "./pages/index";
 import { NavBar } from "./components/index";
 import "./PageLayout.css";
-import "./assets/styles/styles.scss";
+import "./styles/styles.scss";
 
 function PageLayout() {
   return (
