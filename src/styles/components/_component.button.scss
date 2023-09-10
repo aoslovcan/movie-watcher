@@ -1,0 +1,62 @@
+.button {
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  white-space: nowrap;
+  cursor: pointer;
+
+  &__vertical {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    right: 1%;
+    padding: rem(10px);
+    background: rgba(6, 13, 23, 0.2) !important;
+  }
+
+  &__rounded {
+    border-radius: rem(8px);
+  }
+}
+
+.primary {
+  font-family: $font-primary;
+  background-color: $primary_yellow;
+  color: $primary-black;
+  @include fontSize("b1");
+  font-weight: 700;
+}
+.large {
+  padding: 1.6rem 4rem;
+}
+
+.transparent {
+  background: transparent;
+  color: $primary-grey;
+  border: rem(1px) solid $primary-grey;
+}
+
+.medium {
+  padding: rem(5px) rem(10px);
+}
+
+.arrow {
+  color: white;
+  @include fontSize("a1");
+}
+
+.favourites-button {
+  z-index: 9;
+  color: $primary-white;
+  opacity: 0.5;
+  position: absolute;
+  @include fontSize("a3");
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}

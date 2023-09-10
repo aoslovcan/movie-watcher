@@ -1,0 +1,44 @@
+@use "sass:math";
+
+/**
+ * Font face mixin
+ */
+@mixin font-face(
+  $font-name,
+  $font-filename: $font-name,
+  $version: 1,
+  $font-weight: normal,
+  $font-style: normal
+) {
+  @font-face {
+    font-family: "#{$font-name}";
+    src: url("../../assets/fonts/#{$font-filename}.woff?#{$version}") format("woff");
+    font-weight: $font-weight;
+    font-style: $font-style;
+    font-display: swap;
+  }
+}
+
+/**
+ * Convert font-size from px to rem
+ */
+@function rem($size) {
+  @return math.div($size, 16px) * 1rem;
+}
+
+/**
+ * Convert font-size from px to em
+ */
+@function em($size) {
+  @return math.div($size, 16px) * 1em;
+}
+
+/*
+*Setting for pulse animation
+*/
+$dotPulseBefore: rem(9984px) 0 0 rem(-5px), rem(9984px) 0 0 rem(2px),
+  rem(9984px) 0 0 rem(-5px);
+$dotPulse: rem(9999px) 0 0 rem(-5px), rem(9999px) 0 0 rem(2px),
+  rem(9999px) 0 0 rem(-5px);
+$dotPulseAfter: rem(10014px) 0 0 rem(-5px), rem(10014px) 0 0 rem(2px),
+  rem(10014px) 0 0 rem(-5px);

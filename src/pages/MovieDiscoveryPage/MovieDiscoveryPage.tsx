@@ -7,6 +7,7 @@ import {
   usePopularMovies,
 } from "../../helpers/customHooks";
 import { MovieResponseType, GenresType } from "../../types/types";
+import { getDate } from "../../helpers/commonFunc";
 
 const MovieDiscoveryPage = () => {
   const queryParams = `&language=en-US&page=1`;
@@ -14,6 +15,7 @@ const MovieDiscoveryPage = () => {
   const { newestMovies } = useNewestMovies(queryParams);
   const { popularMovies } = usePopularMovies(queryParams);
   const { genres } = useGenre();
+  const [month, date] = getDate(new Date());
 
   const getGenresName = (genresIds: Array<number>) => {
     return genresIds.map((i) => {
@@ -60,15 +62,15 @@ const MovieDiscoveryPage = () => {
 
   const dateInfo = (
     <div className="calendar-icon">
-      <div className="calendar-icon__month">SEP</div>
-      <div className="calendar-icon__date">1</div>
+      <div className="calendar-icon__month">{month}</div>
+      <div className="calendar-icon__date">{date}</div>
     </div>
   );
 
   return (
-    <div className="pg-lyt">
+    <div className="u-pg-lyt">
       <Tile title="Discover daily" leftComponent={dateInfo}>
-        hello
+        Discover movies
       </Tile>
       <Tile title="Newest movies">
         <MovieListSlider
@@ -76,7 +78,6 @@ const MovieDiscoveryPage = () => {
           category="newest"
         />
       </Tile>
-
       <Tile title="Popular movies">
         <MovieListSlider
           movieList={getMovieList(popularMovies)}

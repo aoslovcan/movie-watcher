@@ -3,9 +3,9 @@ import { BsFillBookmarkFill } from "react-icons/bs";
 import { MovieCardType } from "../../types/types";
 import { useNavigate } from "react-router-dom";
 import { useStorage } from "../../helpers/customHooks";
+import { PosterPicture } from "../../common/commonIndex";
 
 const MovieCard = ({ id, title, posterPath, data }: MovieCardType) => {
-  const url = `https://image.tmdb.org/t/p/w500/${posterPath}`;
   const navigate = useNavigate();
 
   const [addToLocalStorage] = useStorage(
@@ -36,7 +36,7 @@ const MovieCard = ({ id, title, posterPath, data }: MovieCardType) => {
         className="favourites-button"
         onClick={(e) => addToFavourite(e)}
       />
-      <img alt={title} src={url} />
+      <PosterPicture width="500" imgPath={posterPath} altTitle={title} />
     </div>
   );
 };

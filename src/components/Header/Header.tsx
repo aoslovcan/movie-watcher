@@ -1,6 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { NavBar } from "../index";
+import {
+  Button,
+  buttonType,
+  buttonSize,
+  buttonColor,
+} from "../../common/commonIndex";
 
 type HeaderProps = {
   bgImage: string;
@@ -20,14 +25,15 @@ const Header = ({ bgImage, title, subtitle, linkTo }: HeaderProps) => {
     <div className="hero" style={inlineStyle}>
       <div className="content">
         <h1 className="content__heading">{title}</h1>
-        <p className="content__subheading" data-v-596d85fa="">
-          {subtitle}
-        </p>
+        <p className="content__subheading">{subtitle}</p>
         <div className="content__actions">
           <Link to={linkTo}>
-            <button className="button button__rounded large primary">
-              {buttonContent}
-            </button>
+            <Button
+              buttonLabel={buttonContent}
+              buttonType={buttonType.ROUNDED}
+              buttonSize={buttonSize.LARGE}
+              buttonColor={buttonColor.PRIMARY}
+            />
           </Link>
         </div>
       </div>

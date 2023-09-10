@@ -1,7 +1,7 @@
 import React, { useState, useEffect, ChangeEvent } from "react";
 import { BsSearch } from "react-icons/bs";
 import { useFindMovie, useForm } from "../../../helpers/customHooks";
-import Modal from "../../../common/Modal/Modal";
+import { Modal } from "../../../common/commonIndex";
 import PosterListItem from "../../PosterList/PosterListItem/PosterListItem";
 import { ValidationType } from "../../../types/types";
 
@@ -55,19 +55,17 @@ const SearchBar = () => {
       {isSearch && (
         <Modal id="suggestion-modal" title="Movies">
           <div className="search-bar__list">
-            {
-              // @ts-ignore
-              movies?.results
-                ? movies?.results.map((movie) => (
-                    <PosterListItem
-                      id={movie.id}
-                      itemClass="search-bar__list__item"
-                      posterPath={movie.poster_path}
-                      title={movie.title}
-                    />
-                  ))
-                : null
-            }
+            {movies?.results
+              ? // @ts-ignore
+                movies?.results.map((movie) => (
+                  <PosterListItem
+                    id={movie.id}
+                    itemClass="search-bar__list__item"
+                    posterPath={movie.poster_path}
+                    title={movie.title}
+                  />
+                ))
+              : null}
           </div>
         </Modal>
       )}

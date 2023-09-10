@@ -1,0 +1,20 @@
+.modal-container {
+  width: 90%;
+  position: fixed;
+  background: $dark-grey;
+  z-index: 9999;
+  padding: rem(10px);
+  color: $primary-white;
+  font-family: $font-primary;
+  left: 0;
+
+  &__inner {
+    overflow-y: scroll;
+    max-height: 50vh;
+  }
+
+  &__title {
+    padding: rem(5px);
+    border-bottom: rem(1px) solid $primary-white;
+  }
+}

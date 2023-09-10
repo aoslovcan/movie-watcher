@@ -1,6 +1,7 @@
 import React from "react";
 import { BsTrash3Fill } from "react-icons/bs";
 import { useStorage } from "../../../helpers/customHooks";
+import { PosterPicture } from "../../../common/commonIndex";
 type PosterListItemProps = {
   id: number;
   posterPath: string;
@@ -32,7 +33,6 @@ const PosterListItem = ({
   };
 
   const posterListItemClass = itemClass ? itemClass : "poster-list__item";
-  const imgSrc = `https://image.tmdb.org/t/p/w200/${posterPath}`;
   return (
     <div className={posterListItemClass}>
       <div className="poster-list__item__image">
@@ -41,7 +41,7 @@ const PosterListItem = ({
             <BsTrash3Fill />
           </span>
         )}
-        <img alt="poster" src={imgSrc} />
+        <PosterPicture width="200" imgPath={posterPath} altTitle="" />
       </div>
       {title && (
         <div className="info">

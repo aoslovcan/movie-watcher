@@ -1,0 +1,30 @@
+$rem8: rem(8px);
+
+.calendar-icon {
+  width: rem(46px);
+  height: rem(45px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: $rem8;
+  margin-inline-start: rem(20px);
+
+  &__month {
+    font-weight: 700;
+    background-color: $primary-red;
+    border-radius: $rem8 $rem8 0 0;
+    text-transform: uppercase;
+    text-align: center;
+    @include fontSize("b5");
+    line-height: rem(14px);
+  }
+
+  &__date {
+    background-color: $primary-white;
+    border-radius: 0 0 $rem8 $rem8;
+    color: $primary-black;
+    text-align: center;
+    @include fontSize("a1");
+    line-height: rem(32px);
+  }
+}
