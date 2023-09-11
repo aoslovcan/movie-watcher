@@ -8,12 +8,13 @@ import {
 } from "../../helpers/customHooks";
 import { MovieResponseType, GenresType } from "../../types/types";
 import { getDate } from "../../helpers/commonFunc";
+import { DataLoadingError }  from "../../common/commonIndex";
 
 const MovieDiscoveryPage = () => {
   const queryParams = `&language=en-US&page=1`;
 
-  const { newestMovies } = useNewestMovies(queryParams);
-  const { popularMovies } = usePopularMovies(queryParams);
+  const { newestMovies, loadingMovies, errorMovies} = useNewestMovies(queryParams);
+  const { popularMovies, popularMoviesLoading, popularMoviesError } = usePopularMovies(queryParams);
   const { genres } = useGenre();
   const [month, date] = getDate(new Date());
 
@@ -67,22 +68,35 @@ const MovieDiscoveryPage = () => {
     </div>
   );
 
+
+
   return (
     <div className="u-pg-lyt">
       <Tile title="Discover daily" leftComponent={dateInfo}>
         Discover movies
       </Tile>
       <Tile title="Newest movies">
-        <MovieListSlider
-          movieList={getMovieList(newestMovies)}
-          category="newest"
-        />
+        <DataLoadingError
+          isLoading={loadingMovies}
+          errorMsg={errorMovies as string}
+        >
+          <MovieListSlider
+            movieList={getMovieList(newestMovies)}
+            category="newest"
+          />
+        </DataLoadingError>
+
       </Tile>
       <Tile title="Popular movies">
+        <DataLoadingError
+          isLoading={popularMoviesLoading}
+          errorMsg={popularMoviesError as string}
+        >
         <MovieListSlider
           movieList={getMovieList(popularMovies)}
           category="popular"
         />
+      </DataLoadingError>
       </Tile>
     </div>
   );

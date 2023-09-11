@@ -1,0 +1,50 @@
+@include keyframesDotPulse();
+
+.c-loader {
+
+  &__dotted {
+    position: relative;
+    left: -9999px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: $primary-red;
+    color: $primary-red;
+    box-shadow: 9999px 0 0 -5px;
+    animation: dot-pulse 1.5s infinite linear;
+    animation-delay: 0.25s;
+
+    &::before,
+    &::after {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: $primary-red;
+      color: $primary-red;
+    }
+
+    &::before {
+      box-shadow: 9984px 0 0 -5px;
+      animation: dot-pulse-before 1.5s infinite linear;
+      animation-delay: 0s;
+      margin-left: rem(76px);
+    }
+
+    &::after {
+      box-shadow: 10014px 0 0 -5px;
+      animation: dot-pulse-after 1.5s infinite linear;
+      animation-delay: 0.5s;
+      margin-left: rem(-76px);
+    }
+  }
+}
+
+.data-loading-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
