@@ -15,7 +15,7 @@ export const useNewestMovies = (queryParams: string) => {
     }
   );
 
-  return { newestMovies: data, error, isLoading };
+  return { newestMovies: data, loadingMovies: isLoading, errorMovies: error, };
 };
 
 export const usePopularMovies = (queryParams: string) => {
@@ -28,7 +28,7 @@ export const usePopularMovies = (queryParams: string) => {
     }
   );
 
-  return { popularMovies: data, error, isLoading };
+  return { popularMovies: data, popularMoviesLoading: isLoading,  popularMoviesError: error  };
 };
 
 export const useGenre = () => {
@@ -41,7 +41,7 @@ export const useGenre = () => {
     }
   );
 
-  return { genres: data, error, isLoading };
+  return { genres: data, genreLoading:isLoading, genresError: error,  };
 };
 
 export function useDebounce<T>(value: T, delay?: number): T {
