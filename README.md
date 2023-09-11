@@ -6,6 +6,26 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+### `npm install`
+
+Will install all npm modules that is necessary for starting the project.
+
+### `Before starting the app`
+
+In .env file we need to put api key under REACT_APP_API_KEY variable. 
+The key will be sent to your email here after registration on TMBD [https://developer.themoviedb.org/docs](https://developer.themoviedb.org/docs) page.
+The first page showed the home page header with "Discover Movies" button, clicking on this button opens discover-movies page.
+Discovery movies page shows newest and popular movies with api calling, which is implement with react query and custom hooks.
+After api calling, data is cached for 24h in browser memory with react-query. If there is no caching data, it will call API again.
+
+Movies are showed by slider and card components. 
+Every card component have favorites button which will store current movie into local storage. 
+Favorites movies are shown in Favorites dropdown, if you want you can move movie from favorites clicking on trash icon button.
+Handlers for adding, removing and getting data from local storage are done by custom hooks (getDataFromStorage, useStorage).
+Clicking on the card component will open movie detail page.
+
+Styles from component are written in scss, following the ITCSS standard for scss structure. All styles are in styles folder.
+
 ### `npm start`
 
 Runs the app in the development mode.\
