@@ -78,8 +78,8 @@ const MovieDiscoveryPage = () => {
       <Tile title="Newest movies">
         <DataLoadingError
           isLoading={loadingMovies}
-          // @ts-ignore
-          errorMsg={errorMovies?.message}>
+          errorMsg={errorMovies as string}
+        >
           <MovieListSlider
             movieList={getMovieList(newestMovies)}
             category="newest"
@@ -90,8 +90,7 @@ const MovieDiscoveryPage = () => {
       <Tile title="Popular movies">
         <DataLoadingError
           isLoading={popularMoviesLoading}
-          // @ts-ignore
-          errorMsg={popularMoviesError?.message}
+          errorMsg={popularMoviesError as string}
         >
         <MovieListSlider
           movieList={getMovieList(popularMovies)}
